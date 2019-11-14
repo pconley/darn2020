@@ -1,0 +1,33 @@
+<div class="jumbo">
+  <div class="right tomster"></div>
+  <h2>Scoring Sheet!</h2>
+  {{#bs-form model=this onSubmit=(action "submit") as |form|}}
+    {{#form.element label="Email" placeholder="Email" property="email" as |el|}}
+      <div class="input-group">
+        <input value={{el.value}} class="form-control" placeholder="Email" oninput={{action (mut el.value) value="target.value"}} onchange={{action (mut el.value) value="target.value"}} id={{el.id}} type="text">
+        <span class="input-group-addon">@example.com</span>
+      </div>
+    {{/form.element}}
+    {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+  {{/bs-form}}
+  <p>xxxxxxx</p>
+  {{#each this.model as |rental|}}
+    <article class="listing">
+      <div class="details">
+        <h3>{{rental.title}}</h3>
+        <div class="detail owner">
+          <span>Owner:</span> {{rental.owner}}
+        </div>
+        <div class="detail type">
+          <span>Type:</span> {{rental.category}}
+        </div>
+        <div class="detail location">
+          <span>Location:</span> {{rental.city}}
+        </div>
+        <div class="detail bedrooms">
+          <span>Number of bedrooms:</span> {{rental.bedrooms}}
+        </div>
+      </div>
+    </article>
+  {{/each}}
+</div>
