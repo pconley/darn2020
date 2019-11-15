@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
-module('Acceptance | list players', function(hooks) {
+module('Acceptance | navigation', function(hooks) {
   setupApplicationTest(hooks);
 
     test('visiting /', async function(assert) {
@@ -23,8 +23,8 @@ module('Acceptance | list players', function(hooks) {
     });
 
     test('should list available players.', async function(assert) {
-      await visit('/');
-      assert.equal(this.element.querySelectorAll('.listing').length, 3, 'should display 3 players');
+      await visit('/'); 
+      assert.equal(this.element.querySelectorAll('h3').length, 3, 'should display 3 players');
     });
-    
+
 });
