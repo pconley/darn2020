@@ -1,11 +1,26 @@
 export default function() {
+
+  this.player_data = [{
+    type: 'player',
+    id: 'player001',
+    attributes : {
+      name: 'pat'
+    }
+  },{
+    type: 'player',
+    id: 'player002',
+    attributes : {
+      name: 'mj'
+    }
+  }];
+
   this.namespace = '/api';
 
   this.get('/players', function() {
     return {
       data: [{
         type: 'player',
-        id: '90',
+        id: 'p90',
         attributes: {
           name: 'Grand Old Mansion',
           owner: 'Veruca Salt',
@@ -17,7 +32,7 @@ export default function() {
         }
       }, {
         type: 'player',
-        id: '91',
+        id: 'p91',
         attributes: {
           name: 'Urban Living',
           owner: 'Mike Teavee',
@@ -29,7 +44,7 @@ export default function() {
         }
       }, {
         type: 'player',
-        id: '92',
+        id: 'p92',
         attributes: {
           name: 'Downtown Charm',
           owner: 'Violet Beauregarde',
@@ -41,5 +56,81 @@ export default function() {
         }
       }]
     };
+  });
+
+
+  this.get('/games', function() {
+    return {
+      data: [{
+        type: 'game',
+        id: 'game1001',
+        attributes: {
+          name: 'Grand Old Mansion',
+          players: this.player_data,
+        }
+      },
+      {
+        type: 'game',
+        id: 'game1002',
+        attributes: {
+          name: 'XXXXX Old Mansion',
+          players: this.player_data,
+        }
+      }
+    ]
+    };
+  });
+
+  this.get('/players/player300', function() {
+    return {
+      data: {
+        type: 'player',
+        id: 'player300',
+        attributes : {
+          name: 'mj300'
+        }
+      }
+    }
+  });
+  this.get('/players/player301', function() {
+    return {
+      data: {
+        type: 'player',
+        id: 'player301',
+        attributes : {
+          name: 'pat301'
+        }
+      }
+    }
+  });
+
+
+  this.get('/games/game1001', function() {
+    return {
+      data: {
+        type: 'game',
+        id: 'game1001',
+        attributes: {
+          name: 'Grand XXX Mansion',
+        },
+        relationships: {
+          players: {
+            data: [{
+              type: 'player',
+              id: 'player301',
+              // attributes : {
+              //   name: 'pat'
+              // }
+            },{
+              type: 'player',
+              id: 'player300',
+              // attributes : {
+              //   name: 'mj'
+              // }
+            }]
+          }
+        }
+      }
+    }
   });
 }

@@ -24,7 +24,7 @@ module('Acceptance | navigation', function(hooks) {
 
     test('should list available players.', async function(assert) {
       await visit('/'); 
-      assert.equal(this.element.querySelectorAll('h3').length, 3, 'should display 3 players');
+      assert.equal(this.element.querySelectorAll('article').length, 3, 'should display 3 players');
     });
 
 });
