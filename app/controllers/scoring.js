@@ -1,23 +1,17 @@
 import Controller from '@ember/controller';
+// import { alias } from '@ember/object/computed';
 
 export default Controller.extend({
 
   isExpanded: false,
 
-  // just making and alias the data is still not there
-  players: Ember.computed.alias('model.players'),
-
+  // players: alias('model.players'),
 
   actions: {
     toggleBody() {
       this.toggleProperty('isExpanded');
       console.log("toggle");
-    }
+    },
   }
   
 });
-
-// export default Ember.Controller.extend({
-//   comments: Ember.computed.alias('model.comments')
-// })
-

@@ -1,5 +1,8 @@
 <div>
   <h4>Game View: {{game.id}}</h4>
+  <h3>Players</h3>
   <PlayerList @players={{this.game.players}} />
-  <p>add player button goes here</p>
+  <button {{action "addPlayer"}}>Add Player</button>
+  <h3>Rounds</h3>
+  <p>to be determined</p>
 </div>

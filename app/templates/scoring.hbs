@@ -1,17 +1,17 @@
 <div>
   <h3>Scoring Page</h3>
 
-
-  {{#if isExpanded}}
+  {{!-- {{#if isExpanded}}
     <button {{action "toggleBody"}}>Hide Body</button>
     <div class="body">
       BODY
     </div>
   {{else}}
     <button {{action "toggleBody"}}>Show Body</button>
-  {{/if}}
+  {{/if}} --}}
 
   <GameView @game={{this.model}} />
 
-  <p>footer to scoring page</p>
+  <p>scoring page footer</p>
+
 </div>

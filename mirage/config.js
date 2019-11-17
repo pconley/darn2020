@@ -1,19 +1,5 @@
 export default function() {
 
-  this.player_data = [{
-    type: 'player',
-    id: 'player001',
-    attributes : {
-      name: 'pat'
-    }
-  },{
-    type: 'player',
-    id: 'player002',
-    attributes : {
-      name: 'mj'
-    }
-  }];
-
   this.namespace = '/api';
 
   this.get('/players', function() {
@@ -59,27 +45,27 @@ export default function() {
   });
 
 
-  this.get('/games', function() {
-    return {
-      data: [{
-        type: 'game',
-        id: 'game1001',
-        attributes: {
-          name: 'Grand Old Mansion',
-          players: this.player_data,
-        }
-      },
-      {
-        type: 'game',
-        id: 'game1002',
-        attributes: {
-          name: 'XXXXX Old Mansion',
-          players: this.player_data,
-        }
-      }
-    ]
-    };
-  });
+  // this.get('/games', function() {
+  //   return {
+  //     data: [{
+  //       type: 'game',
+  //       id: 'game1001',
+  //       attributes: {
+  //         name: 'Grand Old Mansion',
+  //         players: this.player_data,
+  //       }
+  //     },
+  //     {
+  //       type: 'game',
+  //       id: 'game1002',
+  //       attributes: {
+  //         name: 'XXXXX Old Mansion',
+  //         players: this.player_data,
+  //       }
+  //     }
+  //   ]
+  //   };
+  // });
 
   this.get('/players/player300', function() {
     return {
@@ -92,6 +78,7 @@ export default function() {
       }
     }
   });
+
   this.get('/players/player301', function() {
     return {
       data: {
@@ -118,15 +105,9 @@ export default function() {
             data: [{
               type: 'player',
               id: 'player301',
-              // attributes : {
-              //   name: 'pat'
-              // }
             },{
               type: 'player',
               id: 'player300',
-              // attributes : {
-              //   name: 'mj'
-              // }
             }]
           }
         }
