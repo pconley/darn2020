@@ -1,7 +1,9 @@
 <div>
   {{#each players as |item|}}
-    <PlayerRow id={{item.id}} @player={{item}} />
+    <PlayerRow id={{item.id}} @player={{item}} @onConfirm={{action "destroyPlayer" item}} />
   {{else}}
     No players found.
   {{/each}}
 </div>
+
+

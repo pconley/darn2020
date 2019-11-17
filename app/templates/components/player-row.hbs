@@ -1,3 +1,13 @@
 <article class="player">
-  <Input @id={{this.player.id}} @placeholder="Player Name" @value={{this.player.name}} />
+  <button {{action "removePlayer"}}>
+    <FaIcon @icon="user-times" />
+  </button>
+  <button {{action "toggleDisable"}}>
+    <FaIcon @icon="edit" />
+  </button>
+  <Input @id={{this.player.id}} 
+    @placeholder="Player Name" 
+    @disabled={{isDisabled}}
+    @enter={{action "toggleDisable"}}
+    @value={{this.player.name}} />
 </article>

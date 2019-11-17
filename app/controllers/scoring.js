@@ -12,6 +12,9 @@ export default Controller.extend({
       this.toggleProperty('isExpanded');
       console.log("toggle");
     },
+    // editPlayer() {
+    //   console.log("edit");
+    // },
   }
   
 });
