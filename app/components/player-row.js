@@ -14,7 +14,7 @@ export default Component.extend({
     },
     removePlayer() {
       console.log("remove player")
-      this.onConfirm();
+      this.onRemove();
     },
   }
 });
