@@ -1,59 +1,34 @@
 <div>
   <h4>1. Select Players</h4>
   <PlayersView @players={{this.model.players}} />
-  {{!-- <PlayerList @players={{this.model.players}} />
-  <button {{action "addPlayer"}}>Add Player</button> --}}
+  <br>
   
   <h4>2. Select Game Type</h4>
   <button {{action "createGame" "standard"}}>Standard</button>
   <button {{action "createGame" "downer"}}>Downer</button>
   <button {{action "createGame" "random"}}>Random</button>
+  <br><br>
 
   <h4>3. Start Scoring</h4>
-
-  HDR ::
-  {{#each this.model.players as |p|}}
-    {{p.name}} :
-  {{/each}}
-
-  {{#each this.hands as |h|}}
-    <article>
-      {{h}} :: 
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="row">Cards</th>
       {{#each this.model.players as |p|}}
-        [bid/take/score]&nbsp;&nbsp;&nbsp;
+        <th scope="col">{{p.name}}</th>
       {{/each}}
-    </article>
-  {{else}}
-    Select Game Type to create the hands...
-  {{/each}}
-  
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.hands as |h|}}
+        <tr>
+          <th scope="row">{{h}}</th>
+          {{#each this.model.players as |p|}}
+            <td>{{p.id}}</td>
+          {{/each}}
+      </tr>
+    {{/each}}
+  </tbody>
+  </table>
+ 
 </div>
-
-  {{!--
-    In order for `fa-sort-asc` and `fa-sort-desc` icons to work,
-    you need to have ember-font-awesome installed or manually include
-    the font-awesome assets, e.g. via a CDN.
-  --}}
-
-  {{t.head
-    onColumnClick=(action 'onColumnClick')
-    iconSortable='fa fa-sort'
-    iconAscending='fa fa-sort-asc'
-    iconDescending='fa fa-sort-desc'
-    fixed=true
-  }}
-
-  {{#t.body
-    canSelect=false
-    onScrolledToBottom=(action 'onScrolledToBottom')
-    as |body|
-  }}
-    {{#if isLoading}}
-      {{#body.loader}}
-        {{table-loader}}
-      {{/body.loader}}
-    {{/if}}
-  {{/t.body}}
-
-{{/light-table}}
-
