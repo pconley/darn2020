@@ -1,10 +1,7 @@
 import Component from '@ember/component'
-import { storageFor } from 'ember-local-storage';
 
 export default Component.extend({
   
-  playerStorage: storageFor('players'),
-
   actions: {
     destroyPlayer(player) {
       console.log("destroy player", player.id);

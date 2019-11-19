@@ -1,8 +1,18 @@
 <div>
   <h4>Game View: {{game.id}}</h4>
-  <h3>Players</h3>
-  <PlayerList @players={{this.game.players}} />
-  <button {{action "addPlayer"}}>Add Player</button>
-  <h3>Rounds</h3>
-  <p>to be determined</p>
+  <h3>Rounds:</h3>
+  0 ::
+  {{#each this.game.players as |p|}}
+    {{p.name}} :
+  {{/each}}
+  {{#each this.game.hands as |r|}}
+    <article>
+      {{r}} :: 
+      {{#each this.game.players as |p|}}
+        [bid/take/score]&nbsp;&nbsp;&nbsp;
+      {{/each}}
+    </article>
+  {{else}}
+    Select Game Type to create the hands...
+  {{/each}}
 </div>

@@ -1,20 +1,17 @@
+// import Route from '@ember/routing/route';
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-  model() {
-    // return this.store.findRecord('game', 'game1001', {include: 'players'});
+import { storageFor } from 'ember-local-storage';
 
+export default Route.extend({
+
+  players: storageFor('players'),
+
+  model() {
     return {
-      id: 'game001',
-      // title: 'Grand Old Mansion',
-      // name: 'Veruca Salt',
-      // city: 'San Francisco',
-      // category: 'Estate',
-      nextPlayerNum: 402,
-      players: [
-        {id: 'player400', name: 'Mary Jo'},
-        {id: 'player401', name: 'Pat'},
-      ]
-    };
+      id: "game100",
+      players: this.get('players'),
+      hands: [5,4,3,2,1]
+    }
   }
 });
