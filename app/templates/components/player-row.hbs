@@ -1,14 +1,9 @@
 <article class="player">
-  <button {{action "removePlayer"}}>
+  <button tabIndex="-1" {{action "removePlayer"}}>
     <FaIcon @icon="user-times" />
-  </button>
-  <button {{action "toggleDisable"}}>
-    <FaIcon @icon="edit" />
   </button>
   <Input @id={{this.player.id}} 
     @placeholder="Player Name" 
-    @disabled={{isDisabled}}
     @enter={{action "updatePlayer"}}
     @value={{this.player.name}} />
-  {{!-- <button {{action "storePlayer"}}>Add to storage</button> --}}
 </article>

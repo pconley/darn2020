@@ -7,6 +7,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
+        {{#link-to "players" class="nav-link menu-players"}}Players{{/link-to}}
+      </li>
+      <li class="nav-item">
         {{#link-to "about" class="nav-link menu-about"}}About{{/link-to}}
       </li>
       <li class="nav-item">
@@ -34,10 +37,6 @@
   </div>
 </nav>
 
-{{! app/templates/application.hbs}}
-<button {{action "countUp"}}>Page Visits: {{stats.counter}}</button>
-<button {{action "resetCounter"}}>X</button>
-<button {{action "clearPlayers"}}>Clear Players</button>
 
 <div class="container-fluid">
   <div class="row">

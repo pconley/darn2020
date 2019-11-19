@@ -13,7 +13,7 @@ export default Component.extend({
     updatePlayer(player) {
       console.log("update player", player.id);
       let old = this.players.findBy ('id', player.id);
-      let idx = this.players.indedOf(old);
+      let idx = this.players.indexOf(old);
       this.players.replace(idx, 1, [player]);
     }
   }

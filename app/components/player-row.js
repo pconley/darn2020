@@ -1,28 +1,19 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-
-  isDisabled: true,
-
+  
   actions: {
-    toggleDisable() {
-      this.toggleProperty('isDisabled');
-      if( !this.isDisabled ){
-        console.log("start editing")
-      }
-    },
+
     removePlayer() {
       console.log("remove player")
       this.onRemove();
     },
     updatePlayer() {
       console.log("update player")
-      this.toggleProperty('isDisabled');
       this.onUpdate();
+      // TODO: move focus to the next field
+      // something like this (does not work)
+      this.$().next('.inputs').focus();
     },
-    // storePlayer() {
-    //   console.log("store player")
-    //   this.onStore();
-    // },
   }
 });
