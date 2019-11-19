@@ -34,6 +34,11 @@
   </div>
 </nav>
 
+{{! app/templates/application.hbs}}
+<button {{action "countUp"}}>Page Visits: {{stats.counter}}</button>
+<button {{action "resetCounter"}}>X</button>
+<button {{action "clearPlayers"}}>Clear Players</button>
+
 <div class="container-fluid">
   <div class="row">
     {{outlet}}

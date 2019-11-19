@@ -1,6 +1,9 @@
 <div>
   {{#each players as |item|}}
-    <PlayerRow id={{item.id}} @player={{item}} @onRemove={{action "destroyPlayer" item}} />
+    <PlayerRow id={{item.id}} @player={{item}} 
+      @onRemove={{action "destroyPlayer" item}} 
+      @onUpdate={{action "updatePlayer" item}}
+    />
   {{else}}
     No players found.
   {{/each}}

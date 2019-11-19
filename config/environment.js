@@ -1,5 +1,17 @@
 'use strict';
 
+// add for local storage addon
+module.exports = function() {
+  var ENV = {
+    // modulePrefix: 'my-app',
+    'ember-local-storage': {
+      namespace: true, // will use the modulePrefix e.g. 'my-app'
+      // namespace: 'customNamespace', // will use 'customNamespace'
+      // keyDelimiter: '/' // will use / as a delimiter - the default is :
+    }
+  }
+};
+
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'darn1',

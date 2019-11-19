@@ -1,33 +1,13 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  // friends: function() {
-  //   return this.get('model').get('players');
-  // }.property('model.players'),
+  actions: {
+    addPlayer() {
+      console.log("addPlayer")
+      let players = this.get('game.players');
+      let nextPlayerNum = this.get('game.nextPlayerNum');
+      players.addObject({id: "player"+nextPlayerNum, name: faker.name.firstName()});
+      this.set('game.nextPlayerNum',nextPlayerNum+1);
+    },
+  }
 });
-
-
-// App.PersonController = Ember.ObjectController.extend
-// (
-//   {
-//     friends: function() 
-//     {
-//       return this.get('model').get('friends');
-//     }.property('model.friends'),
-//   }
-// );
-
-
-// import Controller from '@ember/controller';
-
-// export default Controller.extend({
-//   actions: {
-//     filterByCity(param) {
-//       if (param !== '') {
-//         return this.store.query('rental', { city: param });
-//       } else {
-//         return this.store.findAll('rental');
-//       }
-//     }
-//   }
-// });

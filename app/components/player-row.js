@@ -10,11 +10,19 @@ export default Component.extend({
       if( !this.isDisabled ){
         console.log("start editing")
       }
-
     },
     removePlayer() {
       console.log("remove player")
       this.onRemove();
     },
+    updatePlayer() {
+      console.log("update player")
+      this.toggleProperty('isDisabled');
+      this.onUpdate();
+    },
+    // storePlayer() {
+    //   console.log("store player")
+    //   this.onStore();
+    // },
   }
 });

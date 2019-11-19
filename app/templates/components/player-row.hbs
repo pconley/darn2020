@@ -8,6 +8,7 @@
   <Input @id={{this.player.id}} 
     @placeholder="Player Name" 
     @disabled={{isDisabled}}
-    @enter={{action "toggleDisable"}}
+    @enter={{action "updatePlayer"}}
     @value={{this.player.name}} />
+  {{!-- <button {{action "storePlayer"}}>Add to storage</button> --}}
 </article>
