@@ -1,0 +1,16 @@
+<div>
+  <Input @id="score-{{uuid}}" @size=8 @placeholder="0" 
+    @disabled=true
+    @value={{score}}
+  />
+  <br>
+  <Input @id="take-{{uuid}}" @size=2 @placeholder="0" 
+    @disabled=true
+    @value={{take}}
+  />
+  of
+  <Input @id="bid-{{uuid}}" @size=2 @placeholder="0"
+    @disabled={{disabled}}
+    @value={{bid}}
+  />
+</div>

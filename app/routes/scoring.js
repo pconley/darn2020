@@ -11,7 +11,9 @@ export default Route.extend({
     return {
       id: "game100",
       players: this.get('players'),
-      hands: [5,4,3,2,1]
+      // hands: [9,8,7,2,1],
+      // style: 'test',
+      // rounds: []
     }
   }
 });

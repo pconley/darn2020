@@ -13,7 +13,7 @@ export default Component.extend({
       this.onUpdate();
       // TODO: move focus to the next field
       // something like this (does not work)
-      this.$().next('.inputs').focus();
+      // this.$().next('.inputs').focus();
     },
   }
 });

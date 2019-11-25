@@ -4,31 +4,53 @@
   <br>
   
   <h4>2. Select Game Type</h4>
-  <button {{action "createGame" "standard"}}>Standard</button>
-  <button {{action "createGame" "downer"}}>Downer</button>
-  <button {{action "createGame" "random"}}>Random</button>
+  <p>{{this.style}}</p>
+  <button {{action "selectGame" "downer"}} type="button" 
+    class={{if (eq this.style "downer") 'btn-success' 'btn-primary'}}
+    class="btn">Downer
+  </button>
+  <button {{action "selectGame" "standard"}} type= "button" 
+    class={{if (eq this.style "standard") 'btn-success' 'btn-primary'}}
+    class="btn">Standard</button>
+  <button {{action "selectGame" "random"}} type="button" 
+    class={{if (eq this.style "random") 'btn-success' 'btn-primary'}}
+    class="btn">Random</button>
+  <button {{action "selectGame" "test"}} type="button" 
+    class={{if (eq this.style "test") 'btn-success' 'btn-primary'}}
+    class="btn">Test123</button>
   <br><br>
 
   <h4>3. Start Scoring</h4>
+  <button {{action "createGame"}} type="button" 
+    class="btn btn-primary">Create New Scoring Sheet
+  </button>
   <table class="table">
-  <thead>
-    <tr>
-      <th scope="row">Cards</th>
-      {{#each this.model.players as |p|}}
-        <th scope="col">{{p.name}}</th>
-      {{/each}}
-    </tr>
-  </thead>
-  <tbody>
-    {{#each this.hands as |h|}}
+    <thead>
+      <tr>
+        <th scope="row">Cards</th>
+        {{#each this.model.players as |p|}}
+          <th scope="col">{{p.name}}</th>
+        {{/each}}
+        <th scope="row">Totals</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.hands as |h index|}}
         <tr>
           <th scope="row">{{h}}</th>
           {{#each this.model.players as |p|}}
-            <td>{{p.id}}</td>
+            <td>
+              {{#if (eq this.model.current index)}}
+                <ScoreCell @active=true @uuid="{{p.id}}-{{index}}" />
+              {{else}}
+                <ScoreCell @active=false @uuid="{{p.id}}-{{index}}" />
+              {{/if}}
+            </td>
           {{/each}}
-      </tr>
-    {{/each}}
-  </tbody>
+          <td>totals?</td>
+        </tr>
+      {{/each}}
+    </tbody>
   </table>
  
 </div>
